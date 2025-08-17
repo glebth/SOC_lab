@@ -1,0 +1,62 @@
+filebeat.inputs:
+- type: filestream
+  id: default-filestream
+  enabled: true
+  paths:
+    - /usr/share/filebeat/ingest_data/*.log
+
+
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+      templates:
+        - condition:
+            equals:
+              docker.container.labels.co.elastic.logs/module: "elasticsearch"
+          config:
+            - type: filestream
+              id: elasticsearch-logs
+              paths:
+                - /usr/share/elasticsearch/logs/*.log
+              parsers:
+                - container:
+        - condition:
+            equals:
+              docker.container.labels.co.elastic.logs/module: "kibana"
+          config:
+            - type: filestream
+              id: kibana-logs
+              paths:
+                - /usr/share/kibana/logs/*.log
+              parsers:
+                - container:
+        - condition:
+            equals:
+              docker.container.labels.co.elastic.logs/module: "logstash"
+          config:
+            - type: filestream
+              id: logstash-logs
+              paths:
+                - /usr/share/logstash/logs/*.log
+              parsers:
+                - container:
+
+
+
+processors:
+- add_docker_metadata: ~
+
+
+setup.kibana:
+ host: ${KIBANA_HOSTS}
+ username: ${ELASTIC_USER}
+ password: ${ELASTIC_PASSWORD}
+
+
+output.elasticsearch:
+ hosts: ${ELASTIC_HOSTS}
+ username: ${ELASTIC_USER}
+ password: ${ELASTIC_PASSWORD}
+ ssl.enabled: true
+ ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
