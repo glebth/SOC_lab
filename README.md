@@ -9,6 +9,33 @@ Mini-soclab docker-ready!
 - metricbeat
 - filebeat
 
+```
+                      +---------+
+                      | Kibana  |
+                      +---------+
+                           ^
+                           |
+                           v
+                       +--------+
+                       |  es01  |
+                       |Elastic |
+                       +--------+
+                         ^  ^  ^
+      -------------------+  |  +-------------------
+      |                     |                      |
+      v                     v                      v
++-------------+      +-------------+       +---------------+
+| filebeat01  |      | logstash01  |       | metricbeat01   |
+|-------------|      |-------------|       |----------------|
+| - custom    |      | - custom    |       | collecting     |
+|   file      |      |   file      |       | metrics:       |
+|   ingest    |      |   ingest    |       | - logstash     |
+| - harvesting|      |             |       | - elasticsearch|
+|   logs from |      |             |       | - kibana       |
+|   containers|      |             |       |                |
++-------------+      +-------------+       +----------------+
+```
+
 ## How to build
 
 ### 0. Preparations
