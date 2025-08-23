@@ -49,7 +49,8 @@ cd ./SOC_lab
 
 ### 2. Compose and use
 
-> Update `.env` file with your actual data.
+> Update `.env_sample` file with your actual data and credentials.
+> Change its name: `mv ./.env_sample ./.env`
 
 Docker Compose
 
