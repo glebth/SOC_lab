@@ -43,7 +43,8 @@ vm.max_map_count=262144
 ### 1. Git it
 
 ```
-git 
+git clone https://github.com/glebth/SOC_lab.git
+cd ./SOC_lab
 ```
 
 ### 2. Compose and use
@@ -56,7 +57,7 @@ Docker Compose
 docker compose -f ./ek.yml up -d
 ```
 
-If everething is good and running - go to `http://your_docker_host_ip:5601/app/monitoring` - to verify
+If everything is good and running - go to `http://your_docker_host_ip:5601/app/monitoring` - to verify!
 
 -----
 
