@@ -11,7 +11,7 @@ Mini-soclab docker-ready!
 
 ## How to build
 
-### 0. Preparaions
+### 0. Preparations
 
 Docker install:
 
