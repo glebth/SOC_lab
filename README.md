@@ -2,7 +2,7 @@
 
 Mini-soclab docker-ready!
 
-## Contains
+## Structure
 
 - elasticsearch
 - kibana
