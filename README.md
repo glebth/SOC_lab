@@ -87,4 +87,4 @@ ELK Stack version 9.1.2
 
 ----
 
-Created thanks to this amazing guide: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose
+Created thanks to this amazing guide: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose ([github](https://github.com/elkninja/elastic-stack-docker-part-one/tree/main)) 
