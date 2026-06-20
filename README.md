@@ -81,6 +81,8 @@ cd ./SOC_lab
 
 Docker Compose
 
+> To not use sudo with docker - add yourself to the docker group: `sudo usermod -aG docker $USER && newgrp docker`
+
 ```
 docker compose -f ./ek.yml up -d
 ```
@@ -91,7 +93,7 @@ If everything is good and running - go to `http://your_docker_host_ip:5601/app/m
 
 #### Troubleshooting
 
-Verify stared contatiners:
+Verify started contatiners:
 ```
 docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"
 ```
@@ -114,4 +116,4 @@ ELK Stack version 9.1.2
 
 ----
 
-Created thanks to this amazing guide: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose ([github](https://github.com/elkninja/elastic-stack-docker-part-one/tree/main)) 
+Thanks to this amazing guide: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose ([github](https://github.com/elkninja/elastic-stack-docker-part-one/tree/main)) 
