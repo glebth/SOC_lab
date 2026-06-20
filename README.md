@@ -74,10 +74,18 @@ git clone https://github.com/glebth/SOC_lab.git
 cd ./SOC_lab
 ```
 
-### 2. Compose and use
+### 2. Tweak configuration
 
 > Update `.env_sample` file with your actual data and credentials.
 > Change its name: `mv ./.env_sample ./.env`
+
+> Configuration files should be owned by root
+```
+sudo chown root metricbeat.yml filebeat.yml
+sudo chmod go-w metricbeat.yml filebeat.yml
+```
+
+### 3. Start Docker
 
 Docker Compose
 
